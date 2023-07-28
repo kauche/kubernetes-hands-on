@@ -1,5 +1,5 @@
-OS   := $(shell go env GOOS)
-ARCH := $(shell go env GOARCH)
+OS   := $(shell uname | awk '{print tolower($$0)}')
+ARCH := $(shell case $$(uname -m) in (x86_64) echo amd64 ;; (aarch64) echo arm64 ;; (*) echo $$(uname -m) ;; esac)
 
 KUBERNETES_VERSION    := 1.27.3
 KIND_VERSION          := 0.20.0
