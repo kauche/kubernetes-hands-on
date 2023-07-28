@@ -22,7 +22,6 @@ spec:
       containers:
         - name: gateway
           image: nginx:1.25.1
-          imagePullPolicy: Never
           resources:
             limits:
               cpu: 50m
